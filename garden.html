@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Rose Garden</title>
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb') no-repeat center center/cover;
+            text-align: center;
+            color: white;
+            font-family: 'Disney', cursive;
+        }
+        .garden {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .rose {
+            width: 100px;
+            height: 100px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Rose_icon.svg/1200px-Rose_icon.svg.png') no-repeat center center/contain;
+            margin: 15px;
+            cursor: pointer;
+        }
+        .message-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-littleidea.mp3" type="audio/mpeg">
+    </audio>
+    
+    <h1>🌹 Welcome to Your Special Rose Garden 🌹</h1>
+    <p>Each rose holds a special message just for you! Click to reveal. 💌</p>
+    
+    <div class="garden">
+        <div class="rose" onclick="showMessage(0)"></div>
+        <div class="rose" onclick="showMessage(1)"></div>
+        <div class="rose" onclick="showMessage(2)"></div>
+        <div class="rose" onclick="showMessage(3)"></div>
+        <div class="rose" onclick="showMessage(4)"></div>
+    </div>
+    
+    <div class="message-box" id="messageBox">
+        <p id="messageText"></p>
+        <button class="close-btn" onclick="closeMessage()">Close</button>
+    </div>
+    
+    <script>
+        const messages = [
+            "This rose is for the first time I fell for you. ❤️",
+            "This rose represents how beautiful you are, inside and out. 🌸",
+            "Distance may separate us, but our love grows stronger like these roses. 💕",
+            "Each petal carries a wish for our future together. ✨",
+            "You are the most special flower in my garden of life. 🌹"
+        ];
+        
+        function showMessage(index) {
+            document.getElementById('messageText').innerText = messages[index];
+            document.getElementById('messageBox').style.display = 'block';
+        }
+        
+        function closeMessage() {
+            document.getElementById('messageBox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
